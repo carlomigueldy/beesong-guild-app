@@ -18,7 +18,7 @@ class App extends StatelessWidget {
     return ThemeBuilder(
       themes: themes,
       builder: (context, regularTheme, darkTheme, themeMode) => MaterialApp(
-        title: 'Stacked Starter Tempalte',
+        title: 'BeeSong Guild App',
         theme: regularTheme,
         darkTheme: darkTheme,
         themeMode: themeMode,
