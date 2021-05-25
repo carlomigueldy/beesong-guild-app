@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_starter_template/styles/themes.dart';
 import 'package:stacked_starter_template/ui/widgets/app_player_tile.dart';
@@ -53,21 +54,58 @@ class _Body extends StatelessWidget {
       return _NoData();
     }
 
-    return RefreshIndicator(
-      onRefresh: () {
-        return model.futureToRun();
+    return ResponsiveBuilder(
+      builder: (context, sizingInformation) {
+        EdgeInsetsGeometry padding() {
+          if (sizingInformation.deviceScreenType == DeviceScreenType.desktop) {
+            return const EdgeInsets.symmetric(vertical: 10, horizontal: 25);
+          }
+
+          if (sizingInformation.deviceScreenType == DeviceScreenType.mobile) {
+            return const EdgeInsets.all(5);
+          }
+
+          if (sizingInformation.deviceScreenType == DeviceScreenType.tablet) {
+            return const EdgeInsets.all(5);
+          }
+
+          return const EdgeInsets.all(5);
+        }
+
+        int crossAxisCount() {
+          if (sizingInformation.deviceScreenType == DeviceScreenType.desktop) {
+            return 4;
+          }
+
+          if (sizingInformation.deviceScreenType == DeviceScreenType.mobile) {
+            return 2;
+          }
+
+          if (sizingInformation.deviceScreenType == DeviceScreenType.tablet) {
+            return 3;
+          }
+
+          return 2;
+        }
+
+        return RefreshIndicator(
+          onRefresh: () {
+            return model.futureToRun();
+          },
+          child: GridView.count(
+            crossAxisCount: crossAxisCount(),
+            padding: padding(),
+            children: model.players
+                .sortedByDescending((player) => player.online.toString())
+                .map((player) {
+              return AppPlayerTile(
+                data: player,
+                deviceScreenType: sizingInformation.deviceScreenType,
+              );
+            }).toList(),
+          ),
+        );
       },
-      child: GridView.count(
-        crossAxisCount: 2,
-        padding: const EdgeInsets.all(5),
-        children: model.players
-            .sortedByDescending((player) => player.online.toString())
-            .map((player) {
-          return AppPlayerTile(
-            data: player,
-          );
-        }).toList(),
-      ),
     );
   }
 }

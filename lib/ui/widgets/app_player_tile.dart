@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/src/device_screen_type.dart';
 import 'package:stacked_starter_template/datamodels/application_models.dart';
 import 'package:stacked_starter_template/styles/themes.dart';
 import 'package:stacked_starter_template/utils/helper.dart';
@@ -7,9 +8,43 @@ class AppPlayerTile extends StatelessWidget {
   const AppPlayerTile({
     Key? key,
     required this.data,
+    required this.deviceScreenType,
   }) : super(key: key);
 
   final Player data;
+  final DeviceScreenType deviceScreenType;
+
+  EdgeInsetsGeometry get padding {
+    if (deviceScreenType == DeviceScreenType.desktop) {
+      return const EdgeInsets.symmetric(vertical: 10, horizontal: 25);
+    }
+
+    if (deviceScreenType == DeviceScreenType.tablet) {
+      return const EdgeInsets.all(5);
+    }
+
+    if (deviceScreenType == DeviceScreenType.watch) {
+      return const EdgeInsets.all(5);
+    }
+
+    return const EdgeInsets.all(5);
+  }
+
+  double get size {
+    if (deviceScreenType == DeviceScreenType.desktop) {
+      return 150;
+    }
+
+    if (deviceScreenType == DeviceScreenType.mobile) {
+      return 300;
+    }
+
+    if (deviceScreenType == DeviceScreenType.tablet) {
+      return 150;
+    }
+
+    return 150;
+  }
 
   String get classImagePath {
     switch (data.pclass) {
@@ -41,8 +76,8 @@ class AppPlayerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      width: 300,
+      height: size,
+      width: size,
       margin: const EdgeInsets.all(2.5),
       decoration: BoxDecoration(
         image: _classImage(),
@@ -60,7 +95,7 @@ class AppPlayerTile extends StatelessWidget {
             ),
             Spacer(),
             Container(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.7),
                 borderRadius: BorderRadius.circular(5),
