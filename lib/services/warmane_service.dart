@@ -4,10 +4,15 @@ import 'package:stacked_starter_template/datamodels/application_models.dart';
 final dio = Dio();
 
 class WarmaneService {
+  final _options = Options(headers: {
+    'Accept': 'application/json',
+  });
+
   Future<Guild> fetchGuild() async {
     try {
       final response = await dio.get(
         'http://armory.warmane.com/api/guild/BeeSong/Icecrown/summary',
+        options: _options,
       );
 
       return Guild.fromJson(response.data);
@@ -24,6 +29,7 @@ class WarmaneService {
     try {
       final response = await dio.get(
         'http://armory.warmane.com/api/character/$name/Icecrown/summary',
+        options: _options,
       );
 
       return Player.fromJson(response.data);

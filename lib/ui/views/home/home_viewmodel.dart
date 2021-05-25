@@ -20,7 +20,9 @@ class HomeViewModel extends FutureViewModel<Guild> {
 
   List<Player> get players => data!.roster;
 
-  String get onlineCount => isBusy
-      ? '0'
-      : data!.roster.where((player) => player.online).length.toString();
+  bool get hasData => data != null;
+
+  String get onlineCount => hasData
+      ? data!.roster.where((player) => player.online).length.toString()
+      : 'N/A';
 }
