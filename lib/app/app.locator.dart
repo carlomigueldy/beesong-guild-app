@@ -9,11 +9,11 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../services/warmane_service.dart';
+
 final locator = StackedLocator.instance;
 
 void setupLocator() {
   locator.registerLazySingleton(() => NavigationService());
-  locator.registerLazySingleton(() => DialogService());
-  locator.registerLazySingleton(() => BottomSheetService());
-  locator.registerLazySingleton(() => SnackbarService());
+  locator.registerLazySingleton(() => WarmaneService());
 }
