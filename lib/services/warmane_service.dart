@@ -11,7 +11,7 @@ class WarmaneService {
   Future<Guild> fetchGuild() async {
     try {
       final response = await dio.get(
-        'http://armory.warmane.com/api/guild/BeeSong/Icecrown/summary',
+        'https://armory.warmane.com/api/guild/BeeSong/Icecrown/summary',
         options: _options,
       );
 
@@ -28,7 +28,7 @@ class WarmaneService {
 
     try {
       final response = await dio.get(
-        'http://armory.warmane.com/api/character/$name/Icecrown/summary',
+        'https://armory.warmane.com/api/character/$name/Icecrown/summary',
         options: _options,
       );
 
