@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:stacked_starter_template/datamodels/application_models.dart';
+import 'package:beesong_guild_app/datamodels/application_models.dart';
 
 final dio = Dio();
 

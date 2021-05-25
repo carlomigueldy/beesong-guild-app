@@ -1,4 +1,4 @@
-package com.example.stacked_starter_template
+package com.example.beesong_guild_app
 
 import io.flutter.embedding.android.FlutterActivity
 

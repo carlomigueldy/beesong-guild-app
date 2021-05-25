@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/src/device_screen_type.dart';
-import 'package:stacked_starter_template/datamodels/application_models.dart';
-import 'package:stacked_starter_template/styles/themes.dart';
-import 'package:stacked_starter_template/utils/helper.dart';
+import 'package:beesong_guild_app/datamodels/application_models.dart';
+import 'package:beesong_guild_app/styles/themes.dart';
+import 'package:beesong_guild_app/utils/helper.dart';
 
 class AppPlayerTile extends StatelessWidget {
   const AppPlayerTile({

@@ -1,9 +1,9 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:stacked_starter_template/app/app.locator.dart';
-import 'package:stacked_starter_template/app/app.router.dart';
-import 'package:stacked_starter_template/datamodels/application_models.dart';
-import 'package:stacked_starter_template/services/warmane_service.dart';
+import 'package:beesong_guild_app/app/app.locator.dart';
+import 'package:beesong_guild_app/app/app.router.dart';
+import 'package:beesong_guild_app/datamodels/application_models.dart';
+import 'package:beesong_guild_app/services/warmane_service.dart';
 
 class HomeViewModel extends FutureViewModel<Guild> {
   final _navigationService = locator<NavigationService>();

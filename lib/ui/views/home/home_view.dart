@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_starter_template/styles/themes.dart';
-import 'package:stacked_starter_template/ui/widgets/app_player_tile.dart';
+import 'package:beesong_guild_app/styles/themes.dart';
+import 'package:beesong_guild_app/ui/widgets/app_player_tile.dart';
 import 'package:dartx/dartx.dart';
 
 import 'home_viewmodel.dart';
