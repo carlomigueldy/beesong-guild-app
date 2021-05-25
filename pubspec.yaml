@@ -34,7 +34,7 @@ dependencies:
   stacked_themes:
 
   google_fonts: ^2.0.0
-  dio: ^4.0.0
+  http: ^0.13.3
   dartx: ^0.7.1
   responsive_builder: ^0.4.1
   freezed_annotation:
